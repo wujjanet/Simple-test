@@ -1,0 +1,15 @@
+Sub get_data(up_http, down_http)
+Dim xmlhttp: Set xmlhttp = CreateObject("msxml2.xmlhttp.6.0")
+xmlhttp.Open "get", up_http, False
+xmlhttp.send
+Dim fso: Set fso = CreateObject("scripting.filesystemobject")
+Dim newfile: Set newfile = fso.createtextfile(down_http, True)
+newfile.write (xmlhttp.responseText)
+newfile.Close
+Set newfile = Nothing
+Set xmlhttp = Nothing
+End Sub
+
+Sub Button1_Click()
+get_data "https://api.goformz.com/v2/formz/a047e224-b903-4698-aa22-a745004737a0", "C:\Users\troy\Documents\Goformz.json"
+End Sub
