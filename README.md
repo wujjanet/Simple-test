@@ -15,3 +15,11 @@ Open "C:\tester.txt" For Input As #1
         r = r + 1
     Loop
     Close #1
+    
+# creating an exe or package of a vba based workbook
+Sub workbook_open()
+    Dim exe As Excel.Application
+    Set exe = Application
+    exe.Visible = False
+End Sub
+
