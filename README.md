@@ -16,10 +16,24 @@ Open "C:\tester.txt" For Input As #1
     Loop
     Close #1
     
-# creating an exe or package of a vba based workbook
+# Creating an exe or package of a vba based workbook
+Solution 1
 Sub workbook_open()
     Dim exe As Excel.Application
     Set exe = Application
     exe.Visible = False
 End Sub
 
+Solution 2
+use a VBScript rather than an exe file.  Open Notepad, and
+enter the following in the text file:
+Set XL=CreateObject("Excel.Application")
+XL.Visible=True
+XL.Workbooks.Open "C:\A.xls"
+XL.Run "A.xls!TheMacro"
+
+
+Change "C:\A.xls" to the appropriate file name. Change
+"A.xls!!TheMacro" to the workbook name and macro name.
+
+Save the file as a vbs file, e.g., RunIt.vbs rather than a txt file.
