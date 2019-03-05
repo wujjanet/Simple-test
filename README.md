@@ -17,14 +17,14 @@ Open "C:\tester.txt" For Input As #1
     Close #1
     
 # Creating an exe or package of a vba based workbook
-Solution 1
+-- Solution 1
 Sub workbook_open()
     Dim exe As Excel.Application
     Set exe = Application
     exe.Visible = False
 End Sub
 
-Solution 2
+-- Solution 2
 -- Use a VBScript rather than an exe file.  Open Notepad, and enter the following in the text file:
 Set XL=CreateObject("Excel.Application")
 XL.Visible=True
